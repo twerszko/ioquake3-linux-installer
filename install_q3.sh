@@ -17,7 +17,8 @@ wget -nc https://cdn.playmorepromode.com/files/cpma-mappack-full.zip
 #Download manually if gone (https://www.moddb.com/mods/high-quality-quake/downloads/hqq-v36)
 wget -nc -O pak9hqq37test20181106.pk3 https://github.com/diegoulloao/ioquake3-mac-install/raw/master/extras/extra-pack-resolution.pk3
 wget -nc -O pakxy01Tv5.pk3 https://github.com/diegoulloao/ioquake3-mac-install/raw/master/extras/hd-weapons.pk3
-wget -nc -O q3config.cfg https://gist.githubusercontent.com/oliveratgithub/b2df8ff2a76d1ff406f033701de66628/raw/2a6a856e3da322dca0e7090bb911244e11087c52/autoexec.cfg
+#wget -nc -O q3config.cfg https://gist.githubusercontent.com/oliveratgithub/b2df8ff2a76d1ff406f033701de66628/raw/2a6a856e3da322dca0e7090bb911244e11087c52/autoexec.cfg
+wget -nc https://raw.githubusercontent.com/twerszko/ioquake3-linux-installer/master/config/q3config.cfg
 
 wget -nc https://github.com/diegoulloao/ioquake3-mac-install/raw/master/dependencies/baseq3/pak0/pak0.z01
 wget -nc https://github.com/diegoulloao/ioquake3-mac-install/raw/master/dependencies/baseq3/pak0/pak0.z02
@@ -67,8 +68,10 @@ rm pak0.pk3
 rm -f *.txt
 
 sed -i -e 's/^seta cl_renderer.*/seta cl_renderer "opengl1"/g' q3config.cfg
-sed -i -e 's/^seta r_customwidth.*/seta r_customwidth '"$screen_width"'/g' q3config.cfg
-sed -i -e 's/^seta r_customheight.*/seta r_customheight '"$screen_height"'/g' q3config.cfg
+sed -i -e 's/^seta r_customwidth.*/seta r_customwidth "'"$screen_width"'"/g' q3config.cfg
+sed -i -e 's/^seta r_width.*/seta r_width "'"$screen_width"'"/g' q3config.cfg
+sed -i -e 's/^seta r_customheight.*/seta r_customheight "'"$screen_height"'"/g' q3config.cfg
+sed -i -e 's/^seta r_height.*/seta r_height "'"$screen_height"'"/g' q3config.cfg
 mkdir -p ~/.q3a/cpma/
 test -f ~/.q3a/cpma/q3config.cfg || \
 cp q3config.cfg ~/.q3a/cpma/q3config.cfg
