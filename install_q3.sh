@@ -4,6 +4,13 @@ base=~/ioquake3
 screen_width=1920
 screen_height=1200
 
+function unsplit_zip() {
+  cat $1\.* >$1
+  zip -FF $1 --out $1_all.zip
+  rm $1
+  unzip $1_all.zip
+}
+
 mkdir -p ~/q3_tmp && cd ~/q3_tmp
 
 sudo apt-get install libc6 libglade2-0 unzip libsdl2-mixer-2.0-0 libsdl2-image-2.0-0 libsdl2-2.0-0 p7zip-full
@@ -14,7 +21,6 @@ wget -nc https://cdn.playmorepromode.com/files/cpma/cpma-1.52-nomaps.zip
 wget -nc https://cdn.playmorepromode.com/files/cnq3/cnq3-1.51.zip
 wget -nc http://ioquake3.org/files/xcsv_hires.zip
 wget -nc https://cdn.playmorepromode.com/files/cpma-mappack-full.zip
-#Download manually if gone (https://www.moddb.com/mods/high-quality-quake/downloads/hqq-v36)
 wget -nc -O pak9hqq37test20181106.pk3 https://github.com/diegoulloao/ioquake3-mac-install/raw/master/extras/extra-pack-resolution.pk3
 wget -nc -O pakxy01Tv5.pk3 https://github.com/diegoulloao/ioquake3-mac-install/raw/master/extras/hd-weapons.pk3
 #wget -nc -O q3config.cfg https://gist.githubusercontent.com/oliveratgithub/b2df8ff2a76d1ff406f033701de66628/raw/2a6a856e3da322dca0e7090bb911244e11087c52/autoexec.cfg
@@ -26,6 +32,16 @@ wget -nc https://github.com/diegoulloao/ioquake3-mac-install/raw/master/dependen
 wget -nc https://github.com/diegoulloao/ioquake3-mac-install/raw/master/dependencies/baseq3/pak0/pak0.z04
 wget -nc https://github.com/diegoulloao/ioquake3-mac-install/raw/master/dependencies/baseq3/pak0/pak0.zip
 cat pak0\.* > pak0_all.zip
+
+wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/maps.z01
+wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/maps.z02
+wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/maps.z03
+wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/maps.z04
+wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/maps.z05
+wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/maps.z06
+wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/maps.z07
+wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/maps.zip
+unsplit_zip "maps";
 
 chmod +x ioquake3-1.36-7.1.x86_64.run
 chmod +x ioquake3-q3a-1.32-9.run
@@ -46,13 +62,13 @@ rm -rf cnq3
 
 unzip xcsv_hires.zip
 cp xcsv_bq3hi-res.pk3 $base/baseq3/
-mv xcsv_bq3hi-res.pk3 $base/cpma/
+cp xcsv_bq3hi-res.pk3 $base/cpma/
 
 cp pak9hqq37test20181106.pk3 $base/baseq3/
-mv pak9hqq37test20181106.pk3 $base/cpma/
+cp pak9hqq37test20181106.pk3 $base/cpma/
 
 cp pakxy01Tv5.pk3 $base/baseq3/
-mv pakxy01Tv5.pk3 $base/cpma/
+cp pakxy01Tv5.pk3 $base/cpma/
 
 mkdir -p maps && cd maps
 unzip ../cpma-mappack-full.zip
@@ -64,6 +80,11 @@ unzip pak0_all.zip
 cp pak0.pk3 $base/baseq3/
 rm pak0_all.zip
 rm pak0.pk3
+
+unzip maps_all.zip
+mv maps/* $base/baseq3/
+rm maps_all.zip
+rm -rf maps
 
 rm -f *.txt
 
