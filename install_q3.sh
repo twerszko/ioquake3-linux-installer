@@ -13,7 +13,7 @@ function unsplit_zip() {
 
 mkdir -p ~/q3_tmp && cd ~/q3_tmp
 
-sudo apt-get install libc6 libglade2-0 unzip libsdl2-mixer-2.0-0 libsdl2-image-2.0-0 libsdl2-2.0-0 p7zip-full
+sudo apt-get install wget libc6 libglade2-0 unzip libsdl2-mixer-2.0-0 libsdl2-image-2.0-0 libsdl2-2.0-0 p7zip-full
 
 wget -nc https://ioquake3.org/files/1.36/installer/ioquake3-1.36-7.1.x86_64.run
 wget -nc https://ioquake3.org/files/1.36/data/ioquake3-q3a-1.32-9.run

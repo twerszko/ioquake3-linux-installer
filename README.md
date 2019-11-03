@@ -1,5 +1,7 @@
 # ioquake3 + cpma + extras
-
+## Installation
+`wget https://github.com/twerszko/ioquake3-linux-installer/raw/master/install_q3.sh && sh install_q3.sh
+`
 ## Runing the game
 `cd ~/ioquake3 && ./cnq3-x64`
 
