@@ -81,6 +81,7 @@ wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/ma
 wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/maps.z05
 wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/maps.z06
 wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/maps.z07
+wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/maps.z08
 wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/maps.zip
 unsplit_zip "maps";
 
