@@ -189,7 +189,7 @@ echo "
 	Installing custom maps ...
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 "
-unzip maps_all.zip
+unzip maps_all.zip -d maps
 mv maps/* $base/baseq3/
 rm maps_all.zip
 rm -rf maps
@@ -213,4 +213,3 @@ cp q3config.cfg ~/.q3a/cpma/q3config.cfg
 echo "The game will start now"
 pause
 cd $base && ./cnq3-x64
-
