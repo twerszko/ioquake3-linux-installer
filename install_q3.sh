@@ -56,11 +56,12 @@ echo "
 	Downloading files ...
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 "
-wget -nc https://ioquake3.org/files/1.36/installer/ioquake3-1.36-7.1.x86_64.run
-wget -nc https://ioquake3.org/files/1.36/data/ioquake3-q3a-1.32-9.run
+wget -nc https://web.archive.org/web/20190427141853/http://ioquake3.org/files/1.36/installer/ioquake3-1.36-7.1.x86_64.run
+wget -nc https://web.archive.org/web/20200329174145if_/https://ioquake3.org/files/1.36/data/ioquake3-q3a-1.32-9.run
+wget -nc https://files.ioquake3.org/Linux.zip
 wget -nc https://cdn.playmorepromode.com/files/cpma/cpma-1.52-nomaps.zip
 wget -nc https://cdn.playmorepromode.com/files/cnq3/cnq3-1.51.zip
-wget -nc http://ioquake3.org/files/xcsv_hires.zip
+wget -nc https://files.ioquake3.org/xcsv_hires.zip
 wget -nc https://cdn.playmorepromode.com/files/cpma-mappack-full.zip
 wget -nc -O pak9hqq37test20181106.pk3 https://github.com/diegoulloao/ioquake3-mac-install/raw/master/extras/extra-pack-resolution.pk3
 wget -nc -O pakxy01Tv5.pk3 https://github.com/diegoulloao/ioquake3-mac-install/raw/master/extras/hd-weapons.pk3
@@ -73,6 +74,15 @@ wget -nc https://github.com/diegoulloao/ioquake3-mac-install/raw/master/dependen
 wget -nc https://github.com/diegoulloao/ioquake3-mac-install/raw/master/dependencies/baseq3/pak0/pak0.z04
 wget -nc https://github.com/diegoulloao/ioquake3-mac-install/raw/master/dependencies/baseq3/pak0/pak0.zip
 cat pak0\.* > pak0_all.zip
+
+wget -nc https://github.com/diegoulloao/ioquake3-mac-install/raw/master/dependencies/baseq3/pak1.pk3
+wget -nc https://github.com/diegoulloao/ioquake3-mac-install/raw/master/dependencies/baseq3/pak2.pk3
+wget -nc https://github.com/diegoulloao/ioquake3-mac-install/raw/master/dependencies/baseq3/pak3.pk3
+wget -nc https://github.com/diegoulloao/ioquake3-mac-install/raw/master/dependencies/baseq3/pak4.pk3
+wget -nc https://github.com/diegoulloao/ioquake3-mac-install/raw/master/dependencies/baseq3/pak5.pk3
+wget -nc https://github.com/diegoulloao/ioquake3-mac-install/raw/master/dependencies/baseq3/pak6.pk3
+wget -nc https://github.com/diegoulloao/ioquake3-mac-install/raw/master/dependencies/baseq3/pak7.pk3
+wget -nc https://github.com/diegoulloao/ioquake3-mac-install/raw/master/dependencies/baseq3/pak8.pk3
 
 wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/maps.z01
 wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/maps.z02
@@ -127,6 +137,28 @@ rm pak0_all.zip
 rm pak0.pk3
 
 fi
+
+echo "
+++++++++++++++++++++++++++++++++++++++++++++++++++
+	Installing pak1.pk3 - pak8.pk3 ...
+++++++++++++++++++++++++++++++++++++++++++++++++++
+"
+cp pak1.pk3 $base/baseq3/
+rm pak1.pk3
+cp pak2.pk3 $base/baseq3/
+rm pak2.pk3
+cp pak3.pk3 $base/baseq3/
+rm pak3.pk3
+cp pak4.pk3 $base/baseq3/
+rm pak4.pk3
+cp pak5.pk3 $base/baseq3/
+rm pak5.pk3
+cp pak6.pk3 $base/baseq3/
+rm pak6.pk3
+cp pak7.pk3 $base/baseq3/
+rm pak7.pk3
+cp pak8.pk3 $base/baseq3/
+rm pak8.pk3
 
 echo "
 ++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -195,6 +227,15 @@ rm maps_all.zip
 rm -rf maps
 
 rm -f *.txt
+
+echo "
+++++++++++++++++++++++++++++++++++++++++++++++++++
+	Installing test build ...
+++++++++++++++++++++++++++++++++++++++++++++++++++
+"
+unzip Linux.zip
+unzip release-linux-x86_64.zip -d release-linux-x86_64
+rsync -a release-linux-x86_64/ ${base}/
 
 echo "
 ++++++++++++++++++++++++++++++++++++++++++++++++++
