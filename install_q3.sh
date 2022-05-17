@@ -93,6 +93,8 @@ wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/ma
 wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/maps.z07
 wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/maps.z08
 wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/maps.zip
+wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/maps1.zip
+wget -nc https://github.com/twerszko/ioquake3-linux-installer/raw/master/maps/maps2.zip
 unsplit_zip "maps";
 
 chmod +x ioquake3-1.36-7.1.x86_64.run
@@ -227,6 +229,14 @@ rm maps_all.zip
 rm -rf maps
 
 rm -f *.txt
+
+unzip maps1.zip -d maps1
+mv maps1/* $base/baseq3/
+rm -rf maps1
+
+unzip maps2.zip -d maps2
+mv maps2/* $base/baseq3/
+rm -rf maps2
 
 echo "
 ++++++++++++++++++++++++++++++++++++++++++++++++++
